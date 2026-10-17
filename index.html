@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QA Prep — Free Study Path</title>
+<meta name="description" content="A curated, free self-study path for QA and test automation: programming, testing fundamentals, UI/API automation, SQL, and CI/CD.">
+<style>
+  :root{
+    --bg:#f7f7f5;
+    --surface:#ffffff;
+    --text:#1b1b18;
+    --muted:#5c5c56;
+    --border:#e4e2dc;
+    --accent:#1f6f54;
+    --accent-soft:#e8f3ee;
+    --chip:#f0efe9;
+    --done:#1f6f54;
+    --radius:12px;
+    --shadow:0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#14150f;
+      --surface:#1d1e16;
+      --text:#eceae2;
+      --muted:#a9a79c;
+      --border:#30311f;
+      --accent:#5fcba0;
+      --accent-soft:#1c2c23;
+      --chip:#262719;
+      --done:#5fcba0;
+      --shadow:0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.3);
+    }
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+  }
+  .wrap{
+    max-width:880px;
+    margin:0 auto;
+    padding:40px 16px 80px;
+  }
+  header{
+    margin-bottom:32px;
+  }
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    font-size:12px;
+    font-weight:600;
+    color:var(--accent);
+  }
+  h1{
+    font-size:clamp(28px,5vw,38px);
+    margin:8px 0 10px;
+    letter-spacing:-0.01em;
+  }
+  .sub{
+    color:var(--muted);
+    font-size:16px;
+    max-width:640px;
+  }
+  .progress-bar-outer{
+    margin-top:24px;
+    height:8px;
+    border-radius:999px;
+    background:var(--chip);
+    overflow:hidden;
+  }
+  .progress-bar-inner{
+    height:100%;
+    width:0%;
+    background:var(--accent);
+    transition:width .25s ease;
+  }
+  .progress-label{
+    font-size:13px;
+    color:var(--muted);
+    margin-top:8px;
+  }
+  section.module{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:20px 22px;
+    margin-bottom:16px;
+  }
+  .module-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:4px;
+  }
+  .module-num{
+    font-size:12px;
+    font-weight:700;
+    color:var(--accent);
+    background:var(--accent-soft);
+    border-radius:999px;
+    padding:2px 9px;
+  }
+  h2{
+    font-size:18px;
+    margin:0;
+  }
+  .module-goal{
+    color:var(--muted);
+    font-size:14px;
+    margin:6px 0 14px;
+  }
+  ul.resources{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  ul.resources li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:9px 10px;
+    border-radius:8px;
+    border:1px solid transparent;
+  }
+  ul.resources li:hover{
+    background:var(--chip);
+  }
+  ul.resources input[type="checkbox"]{
+    margin-top:3px;
+    width:16px;
+    height:16px;
+    accent-color:var(--accent);
+    flex-shrink:0;
+  }
+  .res-body{flex:1;}
+  .res-title a{
+    color:var(--text);
+    text-decoration:none;
+    font-weight:600;
+    font-size:14.5px;
+    border-bottom:1px solid var(--border);
+  }
+  .res-title a:hover{
+    color:var(--accent);
+    border-bottom-color:var(--accent);
+  }
+  .res-note{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:2px;
+  }
+  li.checked .res-title a{
+    color:var(--muted);
+    text-decoration:line-through;
+    border-bottom-color:transparent;
+  }
+  .capstone{
+    background:var(--accent-soft);
+    border:1px solid var(--accent);
+  }
+  .capstone h2{color:var(--accent);}
+  .capstone ol{
+    margin:10px 0 0;
+    padding-left:20px;
+    font-size:14.5px;
+  }
+  .capstone li{padding:3px 0;}
+  footer{
+    margin-top:28px;
+    padding:20px 22px;
+    border-radius:var(--radius);
+    border:1px dashed var(--border);
+    color:var(--muted);
+    font-size:14px;
+  }
+  footer strong{color:var(--text);}
+  .reset-link{
+    display:inline-block;
+    margin-top:24px;
+    font-size:12.5px;
+    color:var(--muted);
+    cursor:pointer;
+    text-decoration:underline;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">QA / SDET Prep</div>
+    <h1>The Free Self-Study Path</h1>
+    <p class="sub">Everything below is free. Work top to bottom, check things off as you go, and build the capstone project last — it's what actually proves you can do the job.</p>
+    <div class="progress-bar-outer"><div class="progress-bar-inner" id="bar"></div></div>
+    <div class="progress-label" id="progressLabel">0 of 0 done</div>
+  </header>
+
+  <section class="module" data-module="1">
+    <div class="module-head"><span class="module-num">01</span><h2>Programming Basics</h2></div>
+    <p class="module-goal">Get comfortable writing and reading code before you automate anything.</p>
+    <ul class="resources">
+      <li><input type="checkbox"><div class="res-body"><div class="res-title"><a href="https://java-programming.mooc.fi/" target="_blank" rel="noopener">Java Programming MOOC — University of Helsinki</a></div><div class="res-note">Free, structured, exercise-heavy. Good if your team's stack is Java/Selenium.</div></div></li>
+      <li><input type="checkbox"><div class="res-body"><div class="res-title"><a href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener">Official Python Tutorial — python.org</a></div><div class="res-note">Pick Java or Python based on what your target company uses — don't learn both at once.</div></div></li>
+    </ul>
+  </section>
+
+  <section class="module" data-module="2">
+    <div class="module-head"><span class="module-num">02</span><h2>Testing Fundamentals</h2></div>
+    <p class="module-goal">Vocabulary and concepts — what interviewers actually probe for.</p>
+    <ul class="resources">
+      <li><input type="checkbox"><div class="res-body"><div class="res-title"><a href="https://testautomationu.applitools.com/" target="_blank" rel="noopener">Test Automation University (Applitools)</a></div><div class="res-note">Free courses on testing, automation, and frameworks.</div></div></li>
+      <li><input type="checkbox"><div class="res-body"><div class="res-title"><a href="https://www.istqb.org/" target="_blank" rel="noopener">ISTQB Foundation Syllabus</a></div><div class="res-note">Free PDF. Read it for the concepts and terminology — skip the certification exam unless a job specifically asks for it.</div></div></li>
+    </ul>
+  </section>
+
+  <section class="module" data-module="3">
+    <div class="module-head"><span class="module-num">03</span><h2>UI Automation</h2></div>
+    <p class="module-goal">Learn one tool deeply rather than skimming three.</p>
+    <ul class="resources">
+      <li><input type="checkbox"><div class="res-body"><div class="res-title"><a href="https://www.selenium.dev/documentation/" target="_blank" rel="noopener">Selenium — official documentation</a></div></div></li>
+      <li><input type="checkbox"><div class="res-body"><div class="res-title"><a href="https://playwright.dev/docs/intro" target="_blank" rel="noopener">Playwright — official documentation</a></div><div class="res-note">One of the best tool docs out there — a strong default choice in 2026.</div></div></li>
+      <li><input type="checkbox"><div class="res-body"><div class="res-title"><a href="https://www.saucedemo.com/" target="_blank" rel="noopener">SauceDemo</a> · <a href="https://the-internet.herokuapp.com/" target="_blank" rel="noopener">The Internet</a> · <a href="https://automationexercise.com/" target="_blank" rel="noopener">Automation Exercise</a></div><div class="res-note">Practice sites built specifically for automating against.</div></div></li>
+    </ul>
+  </section>
+
+  <section class="module" data-module="4">
+    <div class="module-head"><span class="module-num">04</span><h2>API Testing</h2></div>
+    <p class="module-goal">Most real-world test suites are API-heavy — don't skip this for UI automation alone.</p>
+    <ul class="resources">
+      <li><input type="checkbox"><div class="res-body"><div class="res-title"><a href="https://academy.postman.com/" target="_blank" rel="noopener">Postman Academy</a></div></div></li>
+      <li><input type="checkbox"><div class="res-body"><div class="res-title"><a href="https://restful-booker.herokuapp.com/apidoc/index.html" target="_blank" rel="noopener">Restful Booker</a> · <a href="https://reqres.in/" target="_blank" rel="noopener">ReqRes</a> · <a href="https://jsonplaceholder.typicode.com/" target="_blank" rel="noopener">JSONPlaceholder</a></div><div class="res-note">Free practice APIs — build real request/response test cases against these.</div></div></li>
+    </ul>
+  </section>
+
+  <section class="module" data-module="5">
+    <div class="module-head"><span class="module-num">05</span><h2>SQL for Testers</h2></div>
+    <p class="module-goal">You will be asked to verify data in a database. Get fluent.</p>
+    <ul class="resources">
+      <li><input type="checkbox"><div class="res-body"><div class="res-title"><a href="https://sqlbolt.com/" target="_blank" rel="noopener">SQLBolt</a></div><div class="res-note">Interactive basics.</div></div></li>
+      <li><input type="checkbox"><div class="res-body"><div class="res-title"><a href="https://leetcode.com/studyplan/top-sql-50/" target="_blank" rel="noopener">LeetCode SQL 50</a></div><div class="res-note">Practice set once the basics are solid.</div></div></li>
+    </ul>
+  </section>
+
+  <section class="module" data-module="6">
+    <div class="module-head"><span class="module-num">06</span><h2>CI/CD</h2></div>
+    <p class="module-goal">A test suite nobody runs automatically doesn't count.</p>
+    <ul class="resources">
+      <li><input type="checkbox"><div class="res-body"><div class="res-title"><a href="https://skills.github.com/" target="_blank" rel="noopener">GitHub Skills</a></div><div class="res-note">Hands-on Git and GitHub Actions courses, free.</div></div></li>
+      <li><input type="checkbox"><div class="res-body"><div class="res-title"><a href="https://docs.github.com/en/actions" target="_blank" rel="noopener">GitHub Actions — official documentation</a></div></div></li>
+    </ul>
+  </section>
+
+  <section class="module capstone" data-module="7">
+    <div class="module-head"><span class="module-num">07</span><h2>Capstone: Put It All Together</h2></div>
+    <p class="module-goal">This single project will do more for your interviews than any certificate on this page.</p>
+    <ol>
+      <li>Pick one practice site from Module 3.</li>
+      <li>Build a framework with page objects and a config layer.</li>
+      <li>Add API tests against one of the practice APIs from Module 4.</li>
+      <li>Wire it up to run on GitHub Actions on every push.</li>
+      <li>Write a README that explains every decision you made and why.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <strong>The honest part.</strong> These resources teach you what to learn. They won't look at your gaps, tell you why your interview answers sound weak, or keep you accountable when you want to quit. Treat this page as the syllabus — pair it with real mock interviews and code review from someone further along.
+  </footer>
+
+  <span class="reset-link" id="resetProgress">Reset progress</span>
+</div>
+
+<script>
+(function(){
+  var STORAGE_KEY = "qa-prep-progress";
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.resources input[type="checkbox"]'));
+
+  function loadState(){
+    try{
+      var raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    }catch(e){ return {}; }
+  }
+  function saveState(state){
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }catch(e){}
+  }
+  function keyFor(box){
+    var idx = boxes.indexOf(box);
+    return "item-" + idx;
+  }
+  function updateProgress(){
+    var done = boxes.filter(function(b){ return b.checked; }).length;
+    var total = boxes.length;
+    var pct = total ? Math.round((done/total)*100) : 0;
+    var bar = document.getElementById('bar');
+    var label = document.getElementById('progressLabel');
+    if(bar) bar.style.width = pct + '%';
+    if(label) label.textContent = done + ' of ' + total + ' done';
+  }
+
+  var state = loadState();
+  boxes.forEach(function(box){
+    var k = keyFor(box);
+    if(state[k]) box.checked = true;
+    box.closest('li').classList.toggle('checked', box.checked);
+    box.addEventListener('change', function(){
+      var st = loadState();
+      st[k] = box.checked;
+      saveState(st);
+      box.closest('li').classList.toggle('checked', box.checked);
+      updateProgress();
+    });
+  });
+  updateProgress();
+
+  var reset = document.getElementById('resetProgress');
+  if(reset){
+    reset.addEventListener('click', function(){
+      try{ localStorage.removeItem(STORAGE_KEY); }catch(e){}
+      boxes.forEach(function(box){
+        box.checked = false;
+        box.closest('li').classList.remove('checked');
+      });
+      updateProgress();
+    });
+  }
+})();
+</script>
+</body>
+</html>
