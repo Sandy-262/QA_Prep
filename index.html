@@ -6,17 +6,50 @@
 <title>QA Prep — Free Study Path</title>
 <meta name="description" content="A curated, free self-study path for QA and test automation: programming, testing fundamentals, UI/API automation, SQL, and CI/CD.">
 <link rel="stylesheet" href="styles.css">
+<script>
+  // Applied before first paint so a saved theme never flashes the wrong colors.
+  (function () {
+    try {
+      var saved = localStorage.getItem("qa-prep-theme");
+      if (saved === "dark" || saved === "light") {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+    } catch (e) {}
+  })();
+</script>
 </head>
 <body>
 <div class="wrap">
 
   <header>
-    <div class="eyebrow" id="eyebrow"></div>
-    <h1 id="pageTitle"></h1>
-    <p class="sub" id="pageSubtitle"></p>
-    <div class="progress-bar-outer"><div class="progress-bar-inner" id="bar"></div></div>
-    <div class="progress-label" id="progressLabel">0 of 0 done</div>
+    <div class="header-text">
+      <div class="eyebrow" id="eyebrow"></div>
+      <h1 id="pageTitle"></h1>
+      <p class="sub" id="pageSubtitle"></p>
+      <div class="progress-bar-outer"><div class="progress-bar-inner" id="bar"></div></div>
+      <div class="progress-label" id="progressLabel">0 of 0 done</div>
+    </div>
+    <button type="button" class="theme-toggle" id="themeToggle">🌙 Dark</button>
   </header>
+
+  <section class="playground" id="playground">
+    <div class="playground-head">
+      <h2>Code Playground</h2>
+      <p>Write and run real Java or Python snippets right here to practice — no local setup needed.</p>
+    </div>
+    <div class="playground-controls">
+      <select id="langSelect" aria-label="Language"></select>
+      <button type="button" class="run-btn" id="runBtn">Run ▶</button>
+      <button type="button" class="reset-code-btn" id="resetCode">Reset code</button>
+      <span class="run-status" id="runStatus"></span>
+    </div>
+    <textarea class="code-input" id="codeInput" spellcheck="false" aria-label="Code editor"></textarea>
+    <div class="playground-output">
+      <div class="output-head">Output</div>
+      <pre class="code-output" id="codeOutput">Run your code to see output here.</pre>
+    </div>
+    <p class="playground-note">Code runs via the free <a href="https://wandbox.org/" target="_blank" rel="noopener">Wandbox</a> online compiler — it leaves your browser to run, so don't paste anything sensitive. Tip: Ctrl/Cmd+Enter runs it too.</p>
+  </section>
 
   <main id="modules"></main>
 
@@ -24,6 +57,9 @@
 </div>
 
 <script src="data.js"></script>
+<script src="playground-data.js"></script>
 <script src="app.js"></script>
+<script src="playground.js"></script>
+<script src="theme.js"></script>
 </body>
 </html>
